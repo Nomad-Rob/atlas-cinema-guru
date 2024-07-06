@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
-import Dashboard from './components/Dashboard';
+import Dashboard from './routes/dashboard/Dashboard';
 import Authentication from './routes/auth/Authentication';
 
 const App = () => {
@@ -28,7 +28,7 @@ const App = () => {
   }, []);
 
   if (isLoggedIn) {
-    return <Dashboard username={userUsername} />;
+    return <Dashboard userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />;
   } else {
     return <Authentication setIsLoggedIn={setIsLoggedIn} setUserUsername={setUserUsername} />;
   }
