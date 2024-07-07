@@ -1,0 +1,132 @@
+.tag-li-element {
+  color: #FFF;
+  height: 26px;
+  text-align: center;
+  list-style: none;
+  border: 2px solid #E31C25;
+  border-radius: 90px;
+  padding: 3px 13px;
+  margin: 6px 9px;
+  white-space: nowrap;
+}
+
+.selected {
+  background-color: #E31C25;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 83px;
+}
+
+.year-sort-container {
+  display: flex;
+  margin-top: 16px;
+}
+
+.min-year-input {
+  margin-right: 40px;
+}
+
+.max-year-input {
+  margin-right: 40px;
+}
+
+.tags-container {
+  display: flex;
+  width: 690px !important;
+  flex-wrap: wrap;
+  margin-right: 0;
+}
+
+.movie-card-container {
+  background-color: #2C2C2C;
+  color: #FFF;
+  width: 300px;
+  height: 400px;
+  margin: 16px 21px;
+}
+
+.movie-card-container li {
+  list-style: none;
+}
+
+.card-thumbnail-container {
+  position: relative;
+}
+
+.watch-later-icon {
+  position: absolute;
+  top: 11.5px;
+  right: 39px;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+}
+
+.watch-later-icon:hover {
+  cursor: pointer;
+  color: #ffffffbf;
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: 26px;
+  width: 23px;
+  z-index: 1;
+}
+
+.favorite-icon:hover {
+  cursor: pointer;
+  color: #ffffffbf;
+}
+
+.card-thumbnail {
+  position: absolute;
+  top: 0;
+  height: 300px;
+  width: 300px;
+  z-index: 0;
+}
+
+.card-title {
+  position: absolute;
+  top: 245px;
+  width: 285px;
+  font-weight: lighter;
+  font-size: 23px;
+  white-space: nowrap;
+  background-color: #00000073;
+  padding: 6px 9px;
+  z-index: 1 !important;
+}
+
+.card-info-container {
+  position: relative;
+  top: 303px;
+  width: 290px;
+}
+
+.card-description {
+  position: absolute;
+  font-size: 13px;
+  margin: 0 9px;
+  top: 6px;
+}
+
+.card-genres-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.card-genre {
+  font-size: 16px;
+  margin: 6px;
+  background-color: #E31C25;
+  padding: 0 9px;
+  border-radius: 90px;
+}
