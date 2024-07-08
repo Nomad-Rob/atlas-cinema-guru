@@ -6,9 +6,7 @@ import Activity from '../Activity';
 
 const SideBar = () => {
   const [selected, setSelected] = useState('home');
-  const [small, setSmall] = useState(true);
   const [activities, setActivities] = useState([]);
-  const [showActivities, setShowActivities] = useState(false);
   const navigate = useNavigate();
 
   const setPage = (pageName) => {
@@ -27,7 +25,7 @@ const SideBar = () => {
   }, []);
 
   return (
-    <nav className={`sidebar ${small ? '' : 'open'}`}>
+    <nav className="sidebar">
       <ul className="navigation-menu">
         <li className={`nav-item ${selected === 'home' ? 'selected' : ''}`} onClick={() => setPage('Home')}>
           <i className="fa fa-home"></i>
@@ -42,16 +40,14 @@ const SideBar = () => {
           <span>Watch Later</span>
         </li>
       </ul>
-      {showActivities && (
-        <div className="activities-container">
-          <h3 className="activities-title">Recent Activities</h3>
-          <ul className="activity-list">
-            {activities.slice(0, 10).map(activity => (
-              <Activity key={activity.id} activity={activity} />
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="activities-container">
+        <h3 className="activities-title">Recent Activities</h3>
+        <ul className="activity-list">
+          {activities.slice(0, 10).map(activity => (
+            <Activity key={activity.id} activity={activity} />
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 };

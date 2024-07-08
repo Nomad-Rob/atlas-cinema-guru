@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './dashboard.css';
+import MovieCard from '../../components/movies/MovieCard';
 
 const WatchLater = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/titles/watchlater')
+      .then(response => {
+        setMovies(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching watch later movies:', error);
+      });
+  }, []);
+
   return (
     <div>
-      <h2>Watch Later</h2>
-      <p>Here are the movies you want to watch later!</p>
+      <h1>Movies you like</h1>
+      <div className="movies-container">
+        {movies.map(movie => (
+          <MovieCard key={movie.imdbId} movie={movie} />
+        ))}
+      </div>
     </div>
   );
 };
