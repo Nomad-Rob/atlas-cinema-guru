@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css';
-import Dashboard from './routes/dashboard/Dashboard';
 import Authentication from './routes/auth/Authentication';
+import Dashboard from './routes/dashboard/Dashboard';
+import './App.css';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,7 +12,7 @@ const App = () => {
     const accessToken = localStorage.getItem('accessToken');
 
     if (accessToken) {
-      axios.post('/api/auth/', {}, {
+      axios.post('http://localhost:8000/api/auth', {}, {
         headers: {
           Authorization: `Bearer ${accessToken}`
         }
@@ -27,11 +27,15 @@ const App = () => {
     }
   }, []);
 
-  if (isLoggedIn) {
-    return <Dashboard userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />;
-  } else {
-    return <Authentication setIsLoggedIn={setIsLoggedIn} setUserUsername={setUserUsername} />;
-  }
+  return (
+    <div className="App">
+      {isLoggedIn ? (
+        <Dashboard userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />
+      ) : (
+        <Authentication setIsLoggedIn={setIsLoggedIn} setUserUsername={setUserUsername} />
+      )}
+    </div>
+  );
 };
 
 export default App;
